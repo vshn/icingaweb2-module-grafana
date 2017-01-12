@@ -115,11 +115,7 @@ class Grapher extends GrapherHook
         }
         
         if ($object instanceof Service) {
-            $serviceName = $object->getName();
-            $pos = strpos($serviceName, " ");
-            if ($pos !== false) {
-                    $serviceName = substr($serviceName, 0, $pos);
-            }
+            $serviceName = strtok($object->getName(), ' ');
             if (array_key_exists($serviceName, $this->grafana)) {
                     $service = $object;
             } else {
