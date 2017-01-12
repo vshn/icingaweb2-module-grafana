@@ -57,7 +57,7 @@ class Grapher extends GrapherHook
     private function getPreviewImage($service, $metric)
     {
         $hostname = $service->host->getName();
-        $serviceName = $service->getName();
+        $serviceName = preg_replace('/_' . preg_quote($hostname, '/') . '$/', '', $service->getName());
         $serviceParameter = "";
         $pos = strpos($serviceName, " ");
         if ($pos !== false) {
@@ -113,7 +113,7 @@ class Grapher extends GrapherHook
         if (array_key_exists("grafana", $object->customvars)) {
             $this->parseGrapherConfig($object->customvars["grafana"]);
         }
-        
+
         if ($object instanceof Service) {
             $serviceName = strtok($object->getName(), ' ');
             if (array_key_exists($serviceName, $this->grafana)) {
