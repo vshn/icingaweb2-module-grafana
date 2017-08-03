@@ -1,5 +1,11 @@
 # Grafana module for Icinga Web 2
 
+This module is discontinued. It will not be developed any further.
+
+We recommend using [Mikesch-mp/icingaweb2-module-grafana](https://github.com/Mikesch-mp/icingaweb2-module-grafana)
+instead, which has more features and is under active development. Note that the
+configuration differs, although it follows the same general idea.
+
 ## General Information
 
 Insert Grafana graphs into Icinga Web 2 to display performance metrics.
